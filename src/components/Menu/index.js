@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeActiveIndex } from '../../store/modules/takeaway'
 
 const Menu = () => {
-  const { footList,activeIndex } = useSelector(state => state.foot);
-  const menus = footList.map(item => ({ tag: item.tag, name: item.name }))
+  const { foodList,activeIndex } = useSelector(state => state.food);
+  const menus = foodList.map(item => ({ tag: item.tag, name: item.name }))
   const dispatch = useDispatch();
   return (
     <nav className="list-menu">

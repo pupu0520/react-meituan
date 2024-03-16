@@ -5,17 +5,17 @@ import FoodsCategory from './components/FoodsCategory'
 
 
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchFootList } from './store/modules/takeaway'
+import { fetchFoodList } from './store/modules/takeaway'
 import { useEffect } from 'react'
 import './App.scss'
 
 
 const App = () => {
-  const {footList, activeIndex}  = useSelector(state => state.foot); // redux-9 使用useSelector引入store声明的值
+  const {foodList, activeIndex}  = useSelector(state => state.food); // redux-9 使用useSelector引入store声明的值
   const dispatch = useDispatch(); // redux-10 useDispatch 触发请求
 
   useEffect(() => {
-    dispatch(fetchFootList()) // redux-11 触发store中的异步请求
+    dispatch(fetchFoodList()) // redux-11 触发store中的异步请求
   }, [dispatch]);
 
   return (
@@ -31,7 +31,7 @@ const App = () => {
           <div className="list-content">
             <div className="goods-list">
               {/* 外卖商品列表 */}
-              {footList.map((item, index) => {
+              {foodList.map((item, index) => {
                 return (
                   activeIndex === index && <FoodsCategory
                     key={item.tag}

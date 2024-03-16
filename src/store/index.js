@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import footReducers from './modules/takeaway.js';
+import foodReducers from './modules/takeaway.js';
 
 export default configureStore({
   reducer: {
-    foot: footReducers,
+    food: foodReducers,
   }
 })
 
