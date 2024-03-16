@@ -23,12 +23,26 @@ const foodStore = createSlice({
       } else {
         state.cardList.push(action.payload)
       }
+    },
+    // 增加数量
+    increase: (state, action) => {
+      const item = state.cardList.find(item => item.id === action.payload);
+      item.count++;
+    },
+    // 
+    decrease: (state, action) => {
+      const item = state.cardList.find(item => item.id === action.payload);
+      if(item.count === 0) return;
+      item.count--;
+    },
+    clear:(state) => {
+      state.cardList = []
     }
   }
 })
 
 
-const { setFoodList, changeActiveIndex, addCard } = foodStore.actions;
+const { setFoodList, changeActiveIndex, addCard, increase, decrease, clear} = foodStore.actions;
 
 
 const fetchFoodList = () => {
@@ -38,7 +52,7 @@ const fetchFoodList = () => {
   }
 }
 
-export {fetchFoodList, changeActiveIndex, addCard}
+export {fetchFoodList, changeActiveIndex, addCard,  increase, decrease, clear}
 
 const reducer = foodStore.reducer;
 
